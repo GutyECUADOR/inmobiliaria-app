@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Avatar, Typography, Grid, TextField } from '@material-ui/core'
+import { Container, Avatar, Typography, Grid, TextField, FormControlLabel, Button, Checkbox } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const style = {
@@ -22,8 +22,8 @@ const style = {
 export default class RegistroUsuarios extends Component {
     render() {
         return (
-            <Container maxWidth='md'>
-                <div style={style.paper}></div>
+            <Container maxWidth='xs'>
+                <div style={style.paper}>
                     <Avatar style={style.avatar}>
                         <LockOutlinedIcon/>
                     </Avatar>
@@ -33,12 +33,71 @@ export default class RegistroUsuarios extends Component {
 
                     <form style={style.form}>
                         <Grid container spacing={2}>
-                            <Grid item md={6} xs={12}>
-                                <TextField name='nombre' label='Ingrese su nombre' fullWidth></TextField>
-                            </Grid>
+                        <Grid item xs={12} sm={6}>
+                        <TextField
+                            autoComplete="nombres"
+                            name="nombres"
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="nombres"
+                            label="Nombres"
+                            autoFocus
+                        />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                        <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="apellidos"
+                            label="Apellidos"
+                            name="apellidos"
+                            autoComplete="apellidos"
+                        />
+                        </Grid>
+                        <Grid item xs={12}>
+                        <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Correo electronico"
+                            name="email"
+                            autoComplete="email"
+                        />
+                        </Grid>
+                        <Grid item xs={12}>
+                        <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Contraseña"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                        />
+                        </Grid>
+                        <Grid item xs={12}>
+                        <FormControlLabel
+                            control={<Checkbox value="allowExtraEmails" color="primary" />}
+                            label="Acepto todos los terminos & condiciones."
+                        />
+                        </Grid>
+                        <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={style.submit}
+                        >
+                           Registrar
+                        </Button>
+                            
                         </Grid>
                     </form>
-
+                    </div>
             </Container>
         )
     }
